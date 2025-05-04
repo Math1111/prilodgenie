@@ -1,13 +1,21 @@
 {% extends 'portfolio/base.html' %}
+{% load static %}
 
 {% block content %}
-    <section id="about" class="mb-5">
-        <h1 class="display-4">Welcome to My Portfolio</h1>
-        <p class="lead">Hi, I'm [Your Name]. I'm a [Your Profession] specializing in [Your Skills].</p>
+    <!-- Герой-секция (половина экрана) -->
+    <section class="hero-section">
+        <!-- Фоновая картинка -->
+        <img src="{% static 'portfolio/images/hero-bg.jpg' %}" alt="Фон" class="hero-bg">
+
+        <div class="hero-content">
+            <h1 class="display-4">Портфолио программиста Емельянова Матвея</h1>
+            <p class="lead">Меня зовут Матвей, я разработчик с опытом в веб- и мобильных приложениях. Моя цель — создавать качественные, надежные и удобные решения, постоянно расширяя профессиональные навыки.</p>
+        </div>
     </section>
 
+    <!-- Секция проектов -->
     <section id="projects" class="mb-5">
-        <h2 class="mb-4">My Projects</h2>
+        <h2 class="mb-4">Мои проекты</h2>
         <div class="row">
             {% for project in projects %}
             <div class="col-md-4 mb-4">
@@ -16,7 +24,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ project.title }}</h5>
                         <p class="card-text">{{ project.description|truncatechars:100 }}</p>
-                        <a href="{% url 'project_detail' project.id %}" class="btn btn-primary">View Details</a>
+                        <a href="{% url 'project_detail' project.id %}" class="btn btn-primary">Подробнее</a>
                     </div>
                 </div>
             </div>
@@ -24,8 +32,9 @@
         </div>
     </section>
 
+    <!-- Секция навыков -->
     <section id="skills" class="mb-5">
-        <h2 class="mb-4">My Skills</h2>
+        <h2 class="mb-4">Мои навыки</h2>
         <div class="row">
             {% for skill in skills %}
             <div class="col-md-6 mb-3">
@@ -43,19 +52,32 @@
         </div>
     </section>
 
+    <!-- Секция контактов -->
     <section id="contact" class="mb-5">
-    <h2 class="mb-4">Contact Me</h2>
-    {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endfor %}
-    {% endif %}
-    <form method="post">
-        {% csrf_token %}
-        <!-- остальная форма без изменений -->
-    </form>
-</section>
+        <h2 class="mb-4">Связаться со мной</h2>
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Имя</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Сообщение</label>
+                <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+    </section>
 {% endblock %}
