@@ -5,6 +5,7 @@
 {% block content %}
 <!-- Герой-секция -->
 
+
 <section class="hero-section" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{% static 'portfolio/images/hero-bg.jpg' %}') no-repeat center center; background-size: cover;">
   <div class="hero-content" style="text-align: center;">
     <div class="hero-text" style="max-width: 800px; margin: 0 auto; padding: 2rem;">
@@ -21,8 +22,8 @@
     </div>
   </div>
   <div class="scroll-down" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);">
-    <span></span>
-  </div>
+  <i class="fas fa-chevron-down bounce" style="color: white; font-size: 2rem;"></i>
+</div>
 </section>
 
 <!-- Секция проектов -->
@@ -119,6 +120,7 @@
           </div>
         </div>
 
+
         <div class="social-links">
           <a href="#" class="social-link hover-grow" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
           <a href="#" class="social-link hover-grow" title="GitHub"><i class="fab fa-github"></i></a>
@@ -143,6 +145,8 @@
           <button type="submit" class="btn-primary pulse">Отправить сообщение</button>
         </form>
       </div>
+      <div class="spinning-sphere"></div>
+
     </div>
   </div>
 </section>

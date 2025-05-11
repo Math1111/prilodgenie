@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     {% load static %}
     <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -45,54 +46,101 @@
         </div>
     </footer>
 
+    <!-- Гусь -->
+    <img src="{% static 'portfolio/images/goose.png' %}" id="goose" style="position: fixed; top: 0; left: 0; width: 45px; z-index: 9999; pointer-events: none;">
+
+
+    <!-- Птица -->
+    <img src="{% static 'portfolio/images/bird.png' %}" id="bird" style="position: fixed; top: 100px; left: -100px; width: 60px; z-index: 9998; pointer-events: none;">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Анимация при скролле
-  const animateOnScroll = function() {
-    const elements = document.querySelectorAll('.project-card, .skill-category, .contact-form');
-    elements.forEach(element => {
-      const elementPosition = element.getBoundingClientRect().top;
-      const screenPosition = window.innerHeight / 1.2;
 
-      if (elementPosition < screenPosition) {
-        element.style.opacity = '1';
-        element.style.transform = 'translateY(0)';
-      }
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Анимация при скролле
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.project-card, .skill-category, .contact-form');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        const animatedElements = document.querySelectorAll('.project-card, .skill-category, .contact-form');
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll();
+
+        // Плавный скролл якорей
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Анимация кнопок
+        const buttons = document.querySelectorAll('.btn-primary, .btn-outline');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Гусь следует за курсором
+        const goose = document.getElementById('goose');
+        let mouseX = 0, mouseY = 0;
+        let currentX = 0, currentY = 0;
+
+        document.addEventListener('mousemove', function (e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateGoose() {
+            currentX += (mouseX - currentX) * 0.05;
+            currentY += (mouseY - currentY) * 0.05;
+            goose.style.transform = `translate(${currentX}px, ${currentY}px) scaleX(${mouseX < currentX ? -1 : 1})`;
+            requestAnimationFrame(animateGoose);
+        }
+
+        animateGoose();
     });
-  };
+    </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const bird = document.getElementById('bird');
+  let x = -100;
+  let y = 100;
+  let angle = 0;
 
-  // Инициализация элементов с прозрачностью
-  const animatedElements = document.querySelectorAll('.project-card, .skill-category, .contact-form');
-  animatedElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.6s ease';
-  });
+  function fly() {
+    x += 2;
+    y = 100 + 50 * Math.sin(angle);
+    angle += 0.05;
 
-  window.addEventListener('scroll', animateOnScroll);
-  animateOnScroll(); // Инициализация при загрузке
+    if (x > window.innerWidth + 100) x = -100;
 
-  // Плавный скролл для якорей
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
+    bird.style.transform = `translate(${x}px, ${y}px)`;
+    requestAnimationFrame(fly);
+  }
 
-  // Анимация наведения на кнопки
-  const buttons = document.querySelectorAll('.btn-primary, .btn-outline');
-  buttons.forEach(btn => {
-    btn.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-3px)';
-    });
-    btn.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0)';
-    });
-  });
+  fly();
 });
 </script>
 </body>
