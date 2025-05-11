@@ -5,6 +5,7 @@
 {% block content %}
 <!-- Герой-секция -->
 
+<<<<<<< HEAD
 <!-- Герой-секция -->
 <!-- Герой-секция с горизонтальным изображением -->
 <section class="hero-section" style="
@@ -51,6 +52,27 @@
       Full-stack разработчик с фокусом на создание эффективных и интуитивных веб-решений
     </p>
   </div>
+=======
+
+<section class="hero-section" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{% static 'portfolio/images/hero-bg.jpg' %}') no-repeat center center; background-size: cover;">
+  <div class="hero-content" style="text-align: center;">
+    <div class="hero-text" style="max-width: 800px; margin: 0 auto; padding: 2rem;">
+      <h1 style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 3.5rem; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.3); margin-bottom: 1.5rem;">
+        Портфолио программиста Емельянова Матвея
+      </h1>
+      <p style="font-family: 'Open Sans', sans-serif; font-size: 1.5rem; color: #f8f9fa; line-height: 1.6; margin-bottom: 2.5rem;">
+        Меня зовут Матвей, я разработчик с опытом в веб- и мобильных приложениях. Моя цель — создавать качественные, надежные и удобные решения, постоянно расширяя профессиональные навыки.
+      </p>
+      <div class="hero-buttons" style="display: flex; justify-content: center; gap: 1rem;">
+        <a href="#projects" class="btn-primary pulse" style="padding: 0.8rem 2rem; font-size: 1.1rem;">Мои проекты</a>
+        <a href="#contact" class="btn-outline" style="padding: 0.8rem 2rem; font-size: 1.1rem;">Связаться</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-down" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);">
+  <i class="fas fa-chevron-down bounce" style="color: white; font-size: 2rem;"></i>
+</div>
+>>>>>>> dd82f4f24f3edfd9c95bd75d868a421f5d67c20a
 </section>
 
 <!-- Секция проектов -->
@@ -147,6 +169,7 @@
           </div>
         </div>
 
+
         <div class="social-links">
           <a href="#" class="social-link hover-grow" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
           <a href="#" class="social-link hover-grow" title="GitHub"><i class="fab fa-github"></i></a>
@@ -171,6 +194,8 @@
           <button type="submit" class="btn-primary pulse">Отправить сообщение</button>
         </form>
       </div>
+      <div class="spinning-sphere"></div>
+
     </div>
   </div>
 </section>

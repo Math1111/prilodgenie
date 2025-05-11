@@ -11,6 +11,47 @@
   --success: #28a745;
 }
 
+.bounce {
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(10px);
+  }
+  60% {
+    transform: translateY(5px);
+  }
+}
+
+
+
+.spinning-sphere {
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  right: 40px;
+  top: -20px;
+  animation: spin 6s linear infinite;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
+
 /* Базовые стили */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -480,4 +521,9 @@ body {
   .projects-grid {
     grid-template-columns: 1fr;
   }
+}
+
+#contact {
+  position: relative;
+  padding-top: 60px;
 }
