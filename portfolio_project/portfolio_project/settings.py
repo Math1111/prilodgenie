@@ -132,3 +132,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Для разработки - обслуживание статических файлов
 if DEBUG:
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'  # Для mail.ru
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'emelyanov2704@mail.ru'  # Ваша почта
+EMAIL_HOST_PASSWORD = 'emelik2009'  # Пароль от почты или спец. пароль для приложений
+DEFAULT_FROM_EMAIL = 'emelyanov2704@mail.ru'

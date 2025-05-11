@@ -32,3 +32,24 @@ def home(request):
         'skills': skills,
     }
     return render(request, 'portfolio/home.html', context)
+
+from django.core.mail import send_mail
+from django.conf import settings
+def contact_view(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        # Отправка на вашу почту
+        send_mail(
+            f"Новое сообщение от {name}",
+            f"Имя: {name}\nEmail: {email}\n\nСообщение:\n{message}",
+            settings.DEFAULT_FROM_EMAIL,  # Ваш email в settings.py
+            ['emelyanov2704@mail.ru'],  # Куда отправлять
+            fail_silently=False,
+        )
+
+        return redirect('success_page')  # Перенаправление после отправки
+
+    return render(request, 'portfolio/home.html')

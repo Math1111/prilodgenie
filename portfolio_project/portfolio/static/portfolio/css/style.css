@@ -11,6 +11,917 @@
   --success: #28a745;
 }
 
+/* Существующие стили (предполагаемые, без изменений) */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/hero-bg.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.hero-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.project-card {
+  background: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.skills-section, .contact-section {
+  padding: 5rem 0;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-outline {
+  border: 2px solid #007bff;
+  color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.contact-form {
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.hover-grow {
+  transition: transform 0.3s ease;
+}
+
+.hover-grow:hover {
+  transform: scale(1.1);
+}
+
+/* Космическое свечение для заголовков секций (сине-фиолетовое) */
+.hero-section h1,
+h2.section-title {
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #00f0ff,
+    0 0 10px #00f0ff,
+    0 0 20px #7b00ff,
+    0 0 30px #7b00ff;
+  animation: cosmic-glow 2s ease-in-out infinite;
+}
+
+@keyframes cosmic-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(0, 240, 255, 0.8),
+      0 0 10px rgba(0, 240, 255, 0.6),
+      0 0 20px rgba(123, 0, 255, 0.5),
+      0 0 30px rgba(123, 0, 255, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(0, 240, 255, 1),
+      0 0 20px rgba(0, 240, 255, 0.8),
+      0 0 30px rgba(123, 0, 255, 0.7),
+      0 0 40px rgba(123, 0, 255, 0.5);
+  }
+}
+
+/* Космическое свечение для h3 (розовое) */
+.project-card h3,
+.skill-category h3,
+.contact-info h3 {
+  color: #ffddee;
+  text-shadow:
+    0 0 5px #ff00ff,
+    0 0 10px #ff00ff,
+    0 0 20px #ff66cc,
+    0 0 30px #ff66cc;
+  animation: cosmic-glow-pink 2s ease-in-out infinite;
+  letter-spacing: 1px;
+}
+
+@keyframes cosmic-glow-pink {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(255, 0, 255, 0.8),
+      0 0 10px rgba(255, 0, 255, 0.6),
+      0 0 20px rgba(255, 102, 204, 0.5),
+      0 0 30px rgba(255, 102, 204, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 0, 255, 1),
+      0 0 20px rgba(255, 0, 255, 0.8),
+      0 0 30px rgba(255, 102, 204, 0.7),
+      0 0 40px rgba(255, 102, 204, 0.5);
+  }
+}
+
+/* Футуристическое расстояние между буквами для всех светящихся заголовков */
+.hero-section h1,
+h2.section-title,
+.project-card h3,
+.skill-category h3,
+.contact-info h3 {
+  letter-spacing: 1.5px;
+}
+
+/* Космический фон для секций Проекты, Навыки, Контакты */
+section#projects,
+section#skills,
+section#contact {
+  background: linear-gradient(rgba(10, 10, 20, 0.9), rgba(10, 10, 20, 0.9)), url('../images/starry-bg.jpg') no-repeat center center;
+  background-size: cover;
+  border-radius: 10px !important;
+  margin: 2rem auto;
+  padding: 3rem 0;
+  max-width: 1200px;
+  z-index: 1;
+}
+
+/* Анимированный космический фон для всего сайта */
+body {
+  background: linear-gradient(180deg, #0a0a2a, #1a1a3a) !important;
+  position: relative;
+  overflow-x: hidden;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* Слой с крупными яркими звёздами */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(255, 255, 255, 0.9) 5px, transparent 6px),
+    radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.8) 4px, transparent 5px),
+    radial-gradient(circle at 40% 35%, rgba(255, 255, 255, 0.9) 5px, transparent 6px),
+    radial-gradient(circle at 65% 50%, rgba(255, 255, 255, 0.85) 4px, transparent 5px),
+    radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.9) 5px, transparent 6px),
+    radial-gradient(circle at 90% 40%, rgba(255, 255, 255, 0.8) 4px, transparent 5px),
+    radial-gradient(circle at 15% 60%, rgba(255, 255, 255, 0.9) 5px, transparent 6px),
+    radial-gradient(circle at 75% 80%, rgba(255, 255, 255, 0.85) 4px, transparent 5px);
+  background-size: 100% 100%;
+  animation: shine-large 3s infinite ease-in-out;
+  z-index: -1 !important;
+}
+
+/* Слой с мелкими звёздами для глубины */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 25% 10%, rgba(255, 255, 255, 0.6) 3px, transparent 4px),
+    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.5) 3px, transparent 4px),
+    radial-gradient(circle at 35% 45%, rgba(255, 255, 255, 0.6) 3px, transparent 4px),
+    radial-gradient(circle at 60% 55%, rgba(255, 255, 255, 0.5) 3px, transparent 4px),
+    radial-gradient(circle at 30% 75%, rgba(255, 255, 255, 0.6) 3px, transparent 4px),
+   radial-gradient(circle at 95% 25%, rgba(255, 255, 255, 0.5) 3px, transparent 4px),
+    radial-gradient(circle at 20% 85%, rgba(255, 255, 255, 0.6) 3px, transparent 4px),
+    radial-gradient(circle at 70% 15%, rgba(255, 255, 255, 0.5) 3px, transparent 4px);
+  background-size: 100% 100%;
+  animation: shine-small 4s infinite ease-in-out reverse;
+  z-index: -2 !important;
+}
+
+/* Анимация сияния для крупных звёзд */
+@keyframes shine-large {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+    filter: brightness(1.2);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+    filter: brightness(2.5);
+  }
+}
+
+/* Анимация сияния для мелких звёзд */
+@keyframes shine-small {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+    filter: brightness(1.8);
+  }
+}
+
+/* Убедимся, что контейнеры внутри секций не добавляют лишних отступов */
+section#projects .container,
+section#skills .container,
+section#contact .container {
+  padding: 0 1.5rem;
+}
+
+/* Для лучшей читаемости контента на тёмном фоне */
+section#projects .project-card,
+section#skills .skills-categories,
+section#contact .contact-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+/* Футер на тёмном фоне */
+footer {
+  background: rgba(10, 10, 20, 0.8) !important;
+  color: #ffffff;
+  z-index: 1;
+}
+
+/* Убедимся, что navbar не перекрывает звёзды */
+.navbar {
+  z-index: 2;
+}
+
+/* Убедимся, что main не перекрывает звёзды */
+main {
+  z-index: 1;
+}
+/* Существующие стили (предполагаемые, без изменений) */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/hero-bg.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.hero-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.project-card {
+  background: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.skills-section, .contact-section {
+  padding: 5rem 0;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-outline {
+  border: 2px solid #007bff;
+  color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.contact-form {
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.hover-grow {
+  transition: transform 0.3s ease;
+}
+
+.hover-grow:hover {
+  transform: scale(1.1);
+}
+
+/* Космическое свечение для заголовков секций (сине-фиолетовое) */
+.hero-section h1,
+h2.section-title {
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #00f0ff,
+    0 0 10px #00f0ff,
+    0 0 20px #7b00ff,
+    0 0 30px #7b00ff;
+  animation: cosmic-glow 2s ease-in-out infinite;
+}
+
+@keyframes cosmic-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(0, 240, 255, 0.8),
+      0 0 10px rgba(0, 240, 255, 0.6),
+      0 0 20px rgba(123, 0, 255, 0.5),
+      0 0 30px rgba(123, 0, 255, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(0, 240, 255, 1),
+      0 0 20px rgba(0, 240, 255, 0.8),
+      0 0 30px rgba(123, 0, 255, 0.7),
+      0 0 40px rgba(123, 0, 255, 0.5);
+  }
+}
+
+/* Космическое свечение для h3 (розовое) */
+.project-card h3,
+.skill-category h3,
+.contact-info h3 {
+  color: #ffddee;
+  text-shadow:
+    0 0 5px #ff00ff,
+    0 0 10px #ff00ff,
+    0 0 20px #ff66cc,
+    0 0 30px #ff66cc;
+  animation: cosmic-glow-pink 2s ease-in-out infinite;
+  letter-spacing: 1px;
+}
+
+@keyframes cosmic-glow-pink {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(255, 0, 255, 0.8),
+      0 0 10px rgba(255, 0, 255, 0.6),
+      0 0 20px rgba(255, 102, 204, 0.5),
+      0 0 30px rgba(255, 102, 204, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 0, 255, 1),
+      0 0 20px rgba(255, 0, 255, 0.8),
+      0 0 30px rgba(255, 102, 204, 0.7),
+      0 0 40px rgba(255, 102, 204, 0.5);
+  }
+}
+
+/* Футуристическое расстояние между буквами для всех светящихся заголовков */
+.hero-section h1,
+h2.section-title,
+.project-card h3,
+.skill-category h3,
+.contact-info h3 {
+  letter-spacing: 1.5px;
+}
+
+/* Космический фон для секций Проекты, Навыки, Контакты */
+section#projects,
+section#skills,
+section#contact {
+  background: linear-gradient(rgba(10, 10, 20, 0.9), rgba(10, 10, 20, 0.9)), url('../images/starry-bg.jpg') no-repeat center center;
+  background-size: cover;
+  border-radius: 10px !important; /* Закруглённые углы */
+  margin: 2rem auto; /* Центрирование с отступами */
+  padding: 3rem 0; /* Внутренние отступы */
+  max-width: 1200px; /* Ширина контейнера */
+}
+
+/* Убедимся, что контейнеры внутри секций не добавляют лишних отступов */
+section#projects .container,
+section#skills .container,
+section#contact .container {
+  padding: 0 1.5rem; /* Соответствует отступам Bootstrap */
+}
+
+/* Герой-секция остаётся без изменений */
+section.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/hero-bg.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+/* Для лучшей читаемости контента на тёмном фоне */
+section#projects .project-card,
+section#skills .skills-categories,
+section#contact .contact-content {
+  background: rgba(255, 255, 255, 0.95); /* Полупрозрачный белый фон для контента */
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+/* Existing styles (unchanged, assumed) */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.project-card {
+  background: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.skills-section, .contact-section {
+  padding: 5rem 0;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-outline {
+  border: 2px solid #007bff;
+  color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.contact-form {
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.hover-grow {
+  transition: transform 0.3s ease;
+}
+
+.hover-grow:hover {
+  transform: scale(1.1);
+}
+
+/* Cosmic glow effect for main section titles (blue/purple) */
+.hero-section h1,
+h2.section-title {
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #00f0ff,
+    0 0 10px #00f0ff,
+    0 0 20px #7b00ff,
+    0 0 30px #7b00ff;
+  animation: cosmic-glow 2s ease-in-out infinite;
+}
+
+@keyframes cosmic-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(0, 240, 255, 0.8),
+      0 0 10px rgba(0, 240, 255, 0.6),
+      0 0 20px rgba(123, 0, 255, 0.5),
+      0 0 30px rgba(123, 0, 255, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(0, 240, 255, 1),
+      0 0 20px rgba(0, 240, 255, 0.8),
+      0 0 30px rgba(123, 0, 255, 0.7),
+      0 0 40px rgba(123, 0, 255, 0.5);
+  }
+}
+
+/* Cosmic glow effect for specific h3 headings (pink) */
+.project-card h3,
+.skill-category h3,
+.contact-info h3 {
+  color: #ffddee;
+  text-shadow:
+    0 0 5px #ff00ff,
+    0 0 10px #ff00ff,
+    0 0 20px #ff66cc,
+    0 0 30px #ff66cc;
+  animation: cosmic-glow-pink 2s ease-in-out infinite;
+  letter-spacing: 1px;
+}
+
+@keyframes cosmic-glow-pink {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(255, 0, 255, 0.8),
+      0 0 10px rgba(255, 0, 255, 0.6),
+      0 0 20px rgba(255, 102, 204, 0.5),
+      0 0 30px rgba(255, 102, 204, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 0, 255, 1),
+      0 0 20px rgba(255, 0, 255, 0.8),
+      0 0 30px rgba(255, 102, 204, 0.7),
+      0 0 40px rgba(255, 102, 204, 0.5);
+  }
+}
+
+/* Ensure visibility on dark backgrounds */
+.hero-section h1 {
+  color: #e0e0ff;
+}
+
+/* Futuristic letter spacing for all glowing headings */
+.hero-section h1,
+h2.section-title,
+.project-card h3,
+.skill-category h3,
+.contact-info h3 {
+  letter-spacing: 1.5px;
+}
+
+/* Existing styles (unchanged, assumed) */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.project-card {
+  background: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.skills-section, .contact-section {
+  padding: 5rem 0;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-outline {
+  border: 2px solid #007bff;
+  color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.contact-form {
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.hover-grow {
+  transition: transform 0.3s ease;
+}
+
+.hover-grow:hover {
+  transform: scale(1.1);
+}
+
+/* Cosmic glow effect for section titles */
+.hero-section h1,
+h2.section-title {
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #00f0ff,
+    0 0 10px #00f0ff,
+    0 0 20px #7b00ff,
+    0 0 30px #7b00ff;
+  animation: cosmic-glow 2s ease-in-out infinite;
+}
+
+@keyframes cosmic-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(0, 240, 255, 0.8),
+      0 0 10px rgba(0, 240, 255, 0.6),
+      0 0 20px rgba(123, 0, 255, 0.5),
+      0 0 30px rgba(123, 0, 255, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(0, 240, 255, 1),
+      0 0 20px rgba(0, 240, 255, 0.8),
+      0 0 30px rgba(123, 0, 255, 0.7),
+      0 0 40px rgba(123, 0, 255, 0.5);
+  }
+}
+
+/* Ensure visibility on dark backgrounds */
+.hero-section h1 {
+  color: #e0e0ff; /* Slightly lighter for contrast */
+}
+
+/* Optional: Add slight letter spacing for a futuristic look */
+.hero-section h1,
+h2.section-title {
+  letter-spacing: 1.5px;
+}
+
 .bounce {
   animation: bounce 2s infinite;
 }
@@ -26,7 +937,190 @@
   }
 }
 
+/* Стили для соц. сетей с подписями */
+.social-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
 
+.social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: #3498db;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+/* Existing styles (assumed) */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.project-card {
+  background: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.skills-section, .contact-section {
+  padding: 5rem 0;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-outline {
+  border: 2px solid #007bff;
+  color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.contact-form {
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.hover-grow {
+  transition: transform 0.3s ease;
+}
+
+.hover-grow:hover {
+  transform: scale(1.1);
+}
+
+/* New glow effect for headings */
+h1, h2, h3 {
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+                 0 0 10px rgba(255, 255, 255, 0.4),
+                 0 0 20px rgba(0, 123, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                 0 0 20px rgba(255, 255, 255, 0.6),
+                 0 0 30px rgba(0, 123, 255, 0.5);
+  }
+}
+
+/* Ensure glow looks good on dark backgrounds */
+.hero-section h1 {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+               0 0 10px rgba(0, 123, 255, 0.6),
+               0 0 20px rgba(0, 123, 255, 0.4);
+}
+
+.social-link:hover {
+  transform: scale(1.1);
+  background: #2980b9;
+}
+
+.social-item span {
+  font-size: 14px;
+  color: #333;
+}
 
 .spinning-sphere {
   width: 80px;
@@ -51,7 +1145,47 @@
   }
 }
 
+/* Стили для кнопок проектов */
+.project-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
 
+.project-buttons a {
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.project-buttons a:hover {
+  transform: translateY(-2px);
+}
+
+/* Стиль основной кнопки (синяя) */
+.project-buttons .btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: 2px solid #007bff;
+}
+
+.project-buttons .btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+/* Стиль второй кнопки (обводка) */
+.project-buttons .btn-outline {
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.project-buttons .btn-outline:hover {
+  background-color: #f8f9fa;
+}
 /* Базовые стили */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
