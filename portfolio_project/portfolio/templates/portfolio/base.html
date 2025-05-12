@@ -51,7 +51,7 @@
     </footer>
 
     <!-- Гусь -->
-    <img src="{% static 'portfolio/images/goose.png' %}" id="goose" style="position: fixed; top: 0; left: 0; width: 45px; z-index: 9999; pointer-events: none;">
+
 
 
     <!-- Птица -->
@@ -107,24 +107,45 @@
         });
 
         // Гусь следует за курсором
-        const goose = document.getElementById('goose');
-        let mouseX = 0, mouseY = 0;
-        let currentX = 0, currentY = 0;
+        <script>
+// Исправленный код для гуся
+document.addEventListener('DOMContentLoaded', function() {
+    const goose = document.getElementById('goose');
+    if (!goose) return; // Проверка что гусь существует
 
-        document.addEventListener('mousemove', function (e) {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
+    let posX = 0, posY = 0;
+    let mouseX = 0, mouseY = 0;
 
-        function animateGoose() {
-            currentX += (mouseX - currentX) * 0.05;
-            currentY += (mouseY - currentY) * 0.05;
-            goose.style.transform = `translate(${currentX}px, ${currentY}px) scaleX(${mouseX < currentX ? -1 : 1})`;
-            requestAnimationFrame(animateGoose);
-        }
-
-        animateGoose();
+    // Следим за курсором
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
     });
+
+    function updateGoosePosition() {
+        // Плавное движение
+        posX += (mouseX - posX) * 0.1;
+        posY += (mouseY - posY) * 0.1;
+
+        // Применяем позицию
+        goose.style.left = posX + 'px';
+        goose.style.top = posY + 'px';
+
+        // Поворот в сторону движения
+        goose.style.transform = `scaleX(${mouseX < posX ? -1 : 1})`;
+
+        requestAnimationFrame(updateGoosePosition);
+    }
+
+    // Настройки гуся
+    goose.style.position = 'fixed';
+    goose.style.pointerEvents = 'none';
+    goose.style.width = '45px';
+    goose.style.zIndex = '9999';
+
+    updateGoosePosition(); // Запускаем анимацию
+});
+</script>
     </script>
     <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -140,12 +161,77 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (x > window.innerWidth + 100) x = -100;
 
-    bird.style.transform = `translate(${x}px, ${y}px)`;
+    bird.style.transform = translate(${x}px, ${y}px);
     requestAnimationFrame(fly);
   }
 
   fly();
 });
 </script>
+<div class="stars"></div>
+<div class="nebula"></div>
+<div class="nebula"></div>
+<script>
+// Силуэты звёздных кораблей вдали
+function createStarDestroyer() {
+    const ship = document.createElement('div');
+    ship.className = 'star-destroyer';  // Добавляем класс для стилей
+    ship.style.top = Math.random() * 80 + 10 + '%';
+    document.body.appendChild(ship);
+
+    let posX = -200;
+    const fly = () => {
+        posX += 0.5;
+        ship.style.left = posX + 'px';
+        if (posX > window.innerWidth + 200) {
+            ship.remove();
+        } else {
+            requestAnimationFrame(fly);
+        }
+    };
+    fly();
+}
+
+// Раз в 30 секунд появляется звёздный разрушитель
+setInterval(createStarDestroyer, 30000);
+
+// Первый корабль появляется через 5 сек после загрузки
+setTimeout(createStarDestroyer, 5000);
+</script>
+<!-- Пролетающие астероиды -->
+<script>
+// Гусь следует за курсором
+document.addEventListener('DOMContentLoaded', function() {
+    const goose = document.getElementById('goose');
+    if (!goose) return;
+
+    let posX = 0, posY = 0;
+    let mouseX = 0, mouseY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function updateGoosePosition() {
+        posX += (mouseX - posX) * 0.1;
+        posY += (mouseY - posY) * 0.1;
+
+        goose.style.left = posX + 'px';
+        goose.style.top = posY + 'px';
+        goose.style.transform = `scaleX(${mouseX < posX ? -1 : 1})`;
+
+        requestAnimationFrame(updateGoosePosition);
+    }
+
+    goose.style.position = 'fixed';
+    goose.style.pointerEvents = 'none';
+    goose.style.width = '45px';
+    goose.style.zIndex = '9999';
+
+    updateGoosePosition();
+});
+</script>
+
 </body>
 </html>

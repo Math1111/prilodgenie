@@ -8,8 +8,11 @@
 <!-- Герой-секция -->
 <!-- Герой-секция с горизонтальным изображением -->
 
-
-<section class="hero-section" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{% static 'portfolio/images/hero-bg.jpg' %}') no-repeat center center; background-size: cover;">
+<section class="hero-section" style="background: transparent; position: relative; overflow: hidden;">
+  <img src="{% static 'portfolio/images/goose.png' %}" id="goose" style="position: fixed; width: 45px; z-index: 9999; pointer-events: none;">
+  <div class="stars"></div>  <!-- Добавляем звёздный фон -->
+  <div class="nebula"></div>
+  <div class="nebula"></div>
   <div class="hero-content" style="text-align: center;">
     <div class="hero-text" style="max-width: 800px; margin: 0 auto; padding: 2rem;">
       <h1 style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 3.5rem; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.3); margin-bottom: 1.5rem;">
@@ -119,55 +122,43 @@
 <!-- Секция контактов -->
 <!-- Секция контактов -->
 <!-- Секция контактов -->
+<!-- Секция контактов -->
 <section id="contact" class="contact-section">
   <div class="container">
-    <h2 class="section-title">Связаться со мной</h2>
+    <div class="space-contact-wrapper">
+      <h2 class="section-title cosmic-title">На связи</h2>
 
-    <div class="contact-content">
-      <div class="contact-info">
-        <h3>Обратная связь</h3>
-        <p>Пожалуйста, заполните форму для отправки мне сообщения.</p>
 
-        <!-- Контактные данные -->
-        <div class="contact-details">
-          <!-- Email (просто текст с иконкой) -->
-          <div class="contact-item">
-            <div class="contact-icon email-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <span class="email-text">emelyanov2704@mail.ru</span>
-          </div>
 
-          <!-- GitHub (кликабельный кружок) -->
-          <div class="contact-item">
-            <a href="https://github.com/Math1111" target="_blank" class="contact-link hover-grow">
-              <div class="contact-icon">
-                <i class="fab fa-github"></i>
-              </div>
-              <span>GitHub</span>
-            </a>
-          </div>
-        </div>
-
-        <p class="contact-footer">Готов к интересным предложениям о работе и сотрудничестве.</p>
-      </div>
-
-      <div class="contact-form">
-        <form method="post">
-          {% csrf_token %}
-          <div class="form-group">
-            <input type="text" name="name" placeholder="Ваше имя" required>
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Ваш Email" required>
-          </div>
-          <div class="form-group">
-            <textarea name="message" placeholder="Ваше сообщение" required></textarea>
-          </div>
-          <button type="submit" class="btn-primary pulse">Отправить сообщение</button>
-        </form>
-      </div>
+<!-- Стало (просто текст) -->
+<div class="cosmic-contacts">
+  <!-- Email -->
+  <div class="cosmic-contact-item email-item pulse">
+    <div class="cosmic-icon">
+      <i class="fas fa-envelope cosmic-pulse"></i>
     </div>
+    <span class="cosmic-text">emelyanov2704@mail.ru</span>
   </div>
+
+  <!-- GitHub -->
+  <div class="cosmic-contact-item github-item pulse">
+    <div class="cosmic-icon">
+      <i class="fab fa-github cosmic-pulse"></i>
+    </div>
+    <a href="https://github.com/Math1111" target="_blank" class="cosmic-link">GitHub</a>
+  </div>
+
+  <!-- Telegram -->
+  <div class="cosmic-contact-item telegram-item pulse">
+    <div class="cosmic-icon">
+      <i class="fab fa-telegram cosmic-pulse"></i>
+    </div>
+    <a href="https://t.me/Izumi_1999_7" target="_blank" class="cosmic-link">Telegram</a>
+  </div>
+</div>
 </section>
+<div class="tie-fighter"></div>
+<div class="death-star"></div>
+<div class="saturn"></div>
+<div class="x-wing"></div>
 {% endblock %}
